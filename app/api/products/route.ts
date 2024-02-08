@@ -1,20 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getPaginatedProducts } from "../helper/fetchProducts";
+import { getPaginatedProducts } from "../helper/filterProducts";
+import { parseQuery } from "../helper/parseQuery";
 
 export const GET = async (req: NextRequest) => {
   try {
 
-    const page_str = req.nextUrl.searchParams.get("page");
-    const limit_str = req.nextUrl.searchParams.get("limit");
+    const page_str = req.nextUrl.searchParams.get("page")
+    const limit_str = req.nextUrl.searchParams.get("limit")
+    const {page, limit} = parseQuery({page_str, limit_str})
 
-    const page = page_str ? parseInt(page_str, 10) : 1;
-    const limit = limit_str ? parseInt(limit_str, 10) : 20;
-
-
-    const {products, lenght} = getPaginatedProducts({page, limit})
+    const { products} = getPaginatedProducts({page, limit})
 
 
-    return NextResponse.json({lenght, products})
+    return NextResponse.json({products})
   } catch (err) {
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
