@@ -1,4 +1,5 @@
 import { Products } from '../data/products'
+export const totalProducts = Products.length
 
 type filterType = {
     page: number | null;
@@ -7,21 +8,23 @@ type filterType = {
 type categoryType = {
     type: string | null;
     sort: string | null;
+    limit: string | null;
 }
 
-export const getSingleProduct = (id = 1) => {
-  const product = Products.filter(product => product.id === id)
-  if (product.length > 0) return {product}
-  else return {product: Products[Products.length - 1]}
+export const getSingleProduct = (id: number) => {
+  if (Number.isNaN(id)) throw new Error("Oops! only numeric characters are allowed.")
+  const filteredProducts = Products.filter(product => product.id === id)
+  if (filteredProducts.length > 0) return filteredProducts[0]
+  else return Products[totalProducts - 1]
 }
 
 export const getPaginatedProducts = (filter : filterType) => {        
     const page = filter.page ?? 1;
-    const limit = filter.limit ?? 20;
+    const limit = filter.limit ?? 50;
     const skip = (page - 1) * limit;
-    const totalPages = Math.ceil(Products.length / limit);
+    const totalPages = Math.ceil(totalProducts / limit);
 
-    if (skip >= Products.length) {
+    if (skip >= totalProducts) {
         // Return the last page if the requested page exceeds the available data
         const lastPageSkip = (totalPages - 1) * limit;
         const products = Products.slice(lastPageSkip);
@@ -33,20 +36,36 @@ export const getPaginatedProducts = (filter : filterType) => {
     }
 }
 
+
 export const getProductsCategory = (category: categoryType) => {
-    switch (category.type) {
-      case null:
-        return { categories: ["tv", "audio", "laptop", "mobile", "gaming", "appliances"]}
-      default:
-        const filteredProducts = Products.filter((product) => product.category === category.type)
+  const categories = ["tv", "audio", "laptop", "mobile", "gaming", "appliances"];
   
-        switch (category.sort) {
-          case "desc":
-            filteredProducts.sort((a, b) => b.price - a.price);
-            break;
-          case "asc":
-            filteredProducts.sort((a, b) => a.price - b.price);
-        }
-        return { products: filteredProducts };
+  if (category.type === null) {
+    return { categories };
+  }
+  if (!categories.includes(category.type)) {
+    throw new Error("Category type must be within the defined categories.");
+  }
+  if (category.sort !== null) {
+    if (!['desc', 'asc'].includes(category.sort)) {
+      throw new Error("Sort type must be 'desc' or 'asc'.");
     }
   }
+
+  let products = Products.filter((product) => product.category === category.type);
+
+  switch (category.sort) {
+    case "desc":
+      products.sort((a, b) => b.price - a.price);
+      break;
+    case "asc":
+      products.sort((a, b) => a.price - b.price);
+      break;
+  }
+
+  if (category.limit && parseInt(category.limit)) {
+    products = products.slice(0, Number(category.limit));
+  }
+  return { products };
+};
+
