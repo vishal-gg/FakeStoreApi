@@ -1,17 +1,17 @@
 import type { NextRequest } from "next/server";
 
-export const parseRequestBody = async (request: NextRequest) => {
-  let newProduct;
+export const parseRequestBody = async <T>(request: NextRequest): Promise<T> => {
+  let requestBody;
   if (request.headers.get("Content-Type")?.startsWith("application/json")) {
-    newProduct = await request.json()
+    requestBody = await request.json()
   } else {
     const formData = await request.formData()
-    newProduct = Object.fromEntries(formData)
+    requestBody = Object.fromEntries(formData)
   }
-  if (!newProduct || Object.keys(newProduct).length === 0) {
+  if (!requestBody || Object.keys(requestBody).length === 0) {
       throw new Error(
         `Sorry, it appears you've sent ${request.method} request without any data.`
       )
   }
-  return newProduct;
+  return requestBody as T;
 }

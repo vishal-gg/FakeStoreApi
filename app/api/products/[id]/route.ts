@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSingleProduct } from "../../helper/filterProducts";
 import { parseRequestBody } from "../../helper/parseRequestBody";
-import { schema } from "../../helper/schema";
+import { productSchema } from "../../helper/schema";
 import { createPayload } from "../../helper/createPayload";
 
 
@@ -36,7 +36,7 @@ export const PUT = async (request: NextRequest, {params} : {params: {id: string}
   try {
     const { id } = params;
     const product = await parseRequestBody(request)
-    const parsed = schema.parse(product)
+    const parsed = productSchema.parse(product)
     const payload = createPayload({
       status: "SUCCESS",
       message: `The product with id ${parseInt(id)} has been replaced with your provided data`,
@@ -61,7 +61,7 @@ export const PATCH = async (request: NextRequest, {params} : {params: {id: strin
     const { id } = params;
     const productToUpdate = await parseRequestBody(request)
     const product = getSingleProduct(parseInt(id))
-    const parsed = schema.parse(productToUpdate)
+    const parsed = productSchema.parse(productToUpdate)
     const payload = createPayload({
       status: 'SUCCESS',
       message: `The product with id ${parseInt(id)} has been updated with your provided data`,

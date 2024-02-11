@@ -1,4 +1,5 @@
-import { productsType, productsTypePartial } from "../data/types"
+import { productsType, productsTypePartial } from "../data/prouduct/types"
+import { UserType , UserTypePartial } from "../data/user/types"
 
 type payloadType = {
     status: "SUCCESS" | "ERROR" | "UNAUTHORIZED" | "FORBIDDEN" | "NOT-FOUND" | "BAD-REQUEST";
@@ -6,8 +7,10 @@ type payloadType = {
     products?: productsType[];
     product?: productsTypePartial;
     categories?: any;
+    user?: UserType;
+    users?: UserTypePartial[];
 }
 
-export const createPayload = ({status, message, product, products, categories} : payloadType) => {
-    return {status, message, product, products, categories}
+export const createPayload = ({status, message, product, products, categories, user, users} : payloadType) => {
+    return {status, message, product, products, categories, user, users}
 }
