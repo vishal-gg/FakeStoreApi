@@ -1,4 +1,4 @@
-import { Products } from '../data/prouduct/products'
+import { Products } from '@data/product/products'
 export const totalProducts = Products.length
 
 type filterType = {

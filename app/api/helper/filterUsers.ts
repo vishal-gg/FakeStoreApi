@@ -1,4 +1,4 @@
-import { Users } from '../data/user/users'
+import { Users } from '@data/user/users'
 export const totalUsers = Users.length
 
 type filterType = {

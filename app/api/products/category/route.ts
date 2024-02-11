@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getProductsCategory } from "../../helper/filterProducts";
-import { createPayload } from "../../helper/createPayload";
+import { getProductsCategory } from "@helper/filterProducts";
+import { createPayload } from "@helper/createPayload";
 
 
 // method: GET

@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getSingleUser } from "../../helper/filterUsers";
-import { parseRequestBody } from "../../helper/parseRequestBody";
-import { userSchema } from "../../helper/schema";
-import { createPayload } from "../../helper/createPayload";
+import { getSingleUser } from "@helper/filterUsers";
+import { parseRequestBody } from "@helper/parseRequestBody";
+import { userSchema } from "@helper/schema";
+import { createPayload } from "@helper/createPayload";
 
 
 // method: GET

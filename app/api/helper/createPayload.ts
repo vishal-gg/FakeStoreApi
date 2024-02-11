@@ -1,5 +1,5 @@
-import { productsType, productsTypePartial } from "../data/prouduct/types"
-import { UserType , UserTypePartial } from "../data/user/types"
+import { productsType, productsTypePartial } from "@product/types"
+import { UserType , UserTypePartial } from "@user/types"
 
 type payloadType = {
     status: "SUCCESS" | "ERROR" | "UNAUTHORIZED" | "FORBIDDEN" | "NOT-FOUND" | "BAD-REQUEST";

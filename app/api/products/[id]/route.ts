@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getSingleProduct } from "../../helper/filterProducts";
-import { parseRequestBody } from "../../helper/parseRequestBody";
-import { productSchema } from "../../helper/schema";
-import { createPayload } from "../../helper/createPayload";
+import { getSingleProduct } from "@helper/filterProducts";
+import { parseRequestBody } from "@helper/parseRequestBody";
+import { productSchema } from "@helper/schema";
+import { createPayload } from "@helper/createPayload";
 
 
 // method: GET

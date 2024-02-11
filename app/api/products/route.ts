@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import { totalProducts, getPaginatedProducts } from "../helper/filterProducts";
-import { parseQuery } from "../helper/parseQuery";
-import { parseRequestBody } from "../helper/parseRequestBody";
-import { schema } from "../helper/schema";
-import { createPayload } from "../helper/createPayload";
+import { totalProducts, getPaginatedProducts } from "@helper/filterProducts";
+import { parseQuery } from "@helper/parseQuery";
+import { parseRequestBody } from "@helper/parseRequestBody";
+import { productSchema } from "@helper/schema";
+import { createPayload } from "@helper/createPayload";
 
 
 // method: GET
@@ -41,7 +41,7 @@ export const GET = async (req: NextRequest) => {
 export const POST = async (request: NextRequest) => {
   try {
     const newProduct = await parseRequestBody(request)
-    const parsed = schema.parse(newProduct)
+    const parsed = productSchema.parse(newProduct)
 
     const payload = createPayload({
       status: 'SUCCESS',

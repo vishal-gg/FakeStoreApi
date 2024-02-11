@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import { totalUsers, getPaginatedUsers } from "../helper/filterUsers";
-import { parseQuery } from "../helper/parseQuery";
-import { parseRequestBody } from "../helper/parseRequestBody";
-import { userSchema } from "../helper/schema";
-import { createPayload } from "../helper/createPayload";
+import { totalUsers, getPaginatedUsers } from "@helper/filterUsers";
+import { parseQuery } from "@helper/parseQuery";
+import { parseRequestBody } from "@helper/parseRequestBody";
+import { userSchema } from "@helper/schema";
+import { createPayload } from "@helper/createPayload";
 
 
 export const GET = async (req: NextRequest) => {
@@ -16,7 +16,7 @@ export const GET = async (req: NextRequest) => {
     const payload = createPayload({
         status: "SUCCESS",
         message: `Here you go! You've received ${users.length} 
-        users. If you need more, just ask for it`,
+        users.`,
         users
     })
    
