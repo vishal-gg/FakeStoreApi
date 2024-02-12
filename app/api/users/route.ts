@@ -9,13 +9,14 @@ import { createPayload } from "@helper/createPayload";
 export const GET = async (req: NextRequest) => {
   try {
     const page_str = req.nextUrl.searchParams.get("page")
-    const limit_str = req.nextUrl.searchParams.get("limit")
+    const limit_str = req.nextUrl.searchParams.get("limit") || "20"
+    const sort = req.nextUrl.searchParams.get("sort")
     const {page, limit} = parseQuery({page_str, limit_str})
-    const {users} = getPaginatedUsers({page, limit})
+    const {users} = getPaginatedUsers({page, limit, sort})
 
     const payload = createPayload({
         status: "SUCCESS",
-        message: `Here you go! You've received ${users.length} 
+        message: `Here you go! You've received ${users.length}
         users.`,
         users
     })

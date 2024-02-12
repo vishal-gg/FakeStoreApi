@@ -13,22 +13,22 @@ export const productSchema = z.object({
   })
 
   export const userSchema = z.object({
-    email: z.string().email(),
-    username: z.string(),
-    password: z.string(),
+    email: z.string().email().optional(),
+    username: z.string().optional(),
+    password: z.string().optional(),
     name: z.object({
-        firstname: z.string(),
-        lastname: z.string()
-    }),
+        firstname: z.string().optional(),
+        lastname: z.string().optional()
+    }).optional(),
     address: z.object({
-        city: z.string(),
-        street: z.string(),
-        number: z.string(),
-        zipcode: z.string(),
+        city: z.string().optional(),
+        street: z.string().optional(),
+        number: z.string().optional(),
+        zipcode: z.string().optional(),
         geolocation: z.object({
-            lat: z.number(),
-            long: z.number()
-        })
-    }),
-    phone: z.string()
+            lat: z.number().optional(),
+            long: z.number().optional()
+        }).optional()
+    }).optional(),
+    phone: z.string().optional()
 });

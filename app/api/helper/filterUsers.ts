@@ -4,6 +4,7 @@ export const totalUsers = Users.length
 type filterType = {
     page: number | null;
     limit: number | null;
+    sort: string | null;
 }
 
 export const getSingleUser = (id: number) => {
@@ -14,21 +15,39 @@ export const getSingleUser = (id: number) => {
 }
 
 
-export const getPaginatedUsers = (filter:filterType) =>{
+export const getPaginatedUsers = (filter: filterType) => {
     const page = filter.page ?? 1;
     const limit = filter.limit ?? 50;
+    const sort = filter.sort;
     const skip = (page - 1) * limit;
     const totalPages = Math.ceil(totalUsers / limit);
 
-    if(skip >= totalUsers){
+    let usersCopy = [...Users];
+
+    if (skip >= totalUsers) {
         const lastPageSkip = (totalPages - 1) * limit;
-        const users = Users.slice(lastPageSkip);
-        return {users}
+        usersCopy = usersCopy.slice(lastPageSkip);
     } else {
-        const users = Users.slice(skip, skip + limit);
-        return {users}
+        usersCopy = usersCopy.slice(skip, skip + limit);
     }
-}
+
+    if (sort !== null) {
+        if (!['desc', 'asc'].includes(sort)) {
+            throw new Error("Sort type must be 'desc' or 'asc'.");
+        }
+        switch (sort) {
+            case "desc":
+                usersCopy.sort((a, b) => b.id - a.id);
+                break;
+            case "asc":
+                usersCopy.sort((a, b) => a.id - b.id);
+                break;
+        }
+    }
+
+    return { users: usersCopy };
+};
+
 
 
 export const getUsersSort = (sort: string | null) => {

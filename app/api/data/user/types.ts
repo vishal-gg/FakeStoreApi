@@ -25,19 +25,19 @@ export type UserTypePartial = Partial<{
     email: string;
     username: string;
     password: string;
-    name: {
+    name: Partial<{
         firstname: string;
         lastname: string;
-    };
-    address: {
+    }>
+    address: Partial<{
         city: string;
         street: string;
         number: string | number;
         zipcode: string;
-        geolocation: {
-            lat: number
-            long: number 
-        };
-    };
-    phone: string;
-}>;
+        geolocation: Partial<{
+            lat: number | string;
+            long: number | string;
+        }>
+    }>
+    phone: string | number;
+}>

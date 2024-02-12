@@ -7,8 +7,8 @@ type payloadType = {
     products?: productsType[];
     product?: productsTypePartial;
     categories?: any;
-    user?: UserType;
-    users?: UserTypePartial[];
+    users?: UserType[];
+    user?: UserTypePartial;
 }
 
 export const createPayload = ({status, message, product, products, categories, user, users} : payloadType) => {
