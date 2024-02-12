@@ -1,10 +1,11 @@
-const Home = () => {
-  
+import Navbar from "./components/Navbar"
+
+const page = () => {
   return (
     <div>
-      <h1>server and client are running..</h1>
+        <Navbar />
     </div>
   )
 }
 
-export default Home;
+export default page
