@@ -1,28 +1,47 @@
-import Link from 'next/link'
-import { FaBars } from "react-icons/fa6";
-import { PiMoonBold } from "react-icons/pi";
-import { AiOutlineArrowUp } from "react-icons/ai";
+"use client"
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { FiArrowUpRight } from "react-icons/fi";
+import ToggleTheme from "./ToggleTheme";
+import { cn } from "@/lib/utils";
+
 const Navbar = () => {
+  const pathname = usePathname()
+
   return (
-    <div className="bg-gray-800 my-7 py-3 max-2xl:mx-8 mx-40 px-6 rounded-sm ">
-        <div className="flex items-center justify-between ">
-            <div className="text-xl">logo</div>
-            <div>
-                <ul className="flex text-xl gap-8 max-md:hidden">
-                    <li><Link href="#">Home</Link></li>
-                    <li><Link href="#">Docs</Link></li>
-                    <li ><Link className="flex" href="#">Github<AiOutlineArrowUp className=" rotate-45  ml-1 text-3xl"/></Link></li>
-                    <li><button className="flex">Dark<PiMoonBold className="mt-1 ml-1 text-2xl"/></button></li>
-                </ul>
-              <ul className="py-1 text-xl hidden gap-6 max-md:flex">
-              <li><PiMoonBold/></li>
-                  <li><FaBars/></li>
-              </ul>
-            </div>
-          
+    <div>
+      <div
+        className="flex justify-between items-center p-5 px-8 font-semibold bg-white/70 dark:bg-[#020817d0] border-b border-gray-100 dark:border-white/5 backdrop-blur-sm fixed z-50 top-0 left-0 w-full"
+      >
+        <div>
+          <Link href="/">
+            FakeStore<strong className="text-pink-500">API</strong>
+          </Link>
         </div>
+        <div className="flex items-center gap-6">
+          <ul className="flex items-center gap-6 ">
+            <li className={cn("opacity-60 hover:opacity-100 transition-opacity",
+            pathname === '/' && "opacity-100"
+            )}>
+              <Link href="/">Home</Link>
+            </li>
+            <li className={cn("opacity-60 hover:opacity-100 transition-opacity",
+            pathname === '/docs' && "opacity-100"
+            )}>
+              <Link href="/docs">Docs</Link>
+            </li>
+            <li className="opacity-60 hover:opacity-100 transition-opacity">
+              <Link href="https://github.com/vishal-gg/fakeStoreApi" target="_blank" className="flex items-center">
+                GitHub <FiArrowUpRight className="text-xl" />
+              </Link>
+            </li>
+          </ul>
+          <ToggleTheme />
+        </div>
+      </div>
     </div>
   )
 }
 
-export default Navbar
+export default Navbar;
