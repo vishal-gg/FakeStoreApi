@@ -111,18 +111,24 @@ export const UpdateProductSnip = () => {
     </div>
   ) 
 }
-
-export const ddProductSnip = () => {
-  fetch("api/products/2", {
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      title: 'product title',
-      brand: "abc brand",
-      model: "xyz model",
-      color: "silver",
-      category: "appliances",
-      discount: 50
-    })
-  })
+export const DeleteProductSnip = () => {
+  return (
+    <div className="overflow-x-auto">
+        <pre className="language-js rounded-lg">
+          <code>fetch("api/products/2", &#123;</code><br />
+          <code>  method: 'DELETE',</code><br />
+          <code>  headers: &#123; 'Content-Type': 'application/json' &#125;,</code><br />
+          <code>  body: JSON.stringify(&#123;</code><br />
+          <code>    title: 'product title',</code><br />
+          <code>    brand: "abc brand",</code><br />
+          <code>    model: "xyz model",</code><br />
+          <code>    color: "silver",</code><br />
+          <code>    category: "appliances",</code><br />
+          <code>    discount: 50</code><br />
+          <code>  &#125;)</code><br />
+          <code>&#125;)</code><br />
+        </pre>
+    </div>
+  ) 
 }
+

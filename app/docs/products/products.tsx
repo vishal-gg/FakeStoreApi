@@ -2,11 +2,13 @@ import { GoPackage } from "react-icons/go";
 import {
   AddProductSnip,
   AllProductsSnip,
+  DeleteProductSnip,
   LimitedProductsSnip,
   PaginatedProductsSnip,
   ProductsCategorySnip,
   ProductsofCategorySnip,
   SingleProductSnip,
+  UpdateProductSnip,
 } from "./snippets";
 
 export const Products = () => {
@@ -60,7 +62,18 @@ export const Products = () => {
         <div id="" className="space-y-2">
          <h3 className="text-xl font-medium">Get products of cateogory</h3>
          <ProductsofCategorySnip />
+        </div>
+        <div id="" className="space-y-2">
+         <h3 className="text-xl font-medium">Add a product</h3>
          <AddProductSnip />
+        </div>
+        <div id="" className="space-y-2">
+         <h3 className="text-xl font-medium">Update a product</h3>
+         <UpdateProductSnip />
+        </div>
+        <div id="" className="space-y-2">
+         <h3 className="text-xl font-medium">Delete a product</h3>
+         <DeleteProductSnip />
         </div>
       </div>
     </div>
