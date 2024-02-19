@@ -5,6 +5,16 @@
 html {
   scroll-behavior: smooth;
 }
+
+*::selection {
+  background-color: #ec489a9c;
+  color: white;
+}
+
+html.dark *::selection {
+  background-color: #1d2021;
+}
+
  
 @layer base {
   :root {

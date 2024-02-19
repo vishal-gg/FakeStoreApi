@@ -24,10 +24,10 @@ const ToggleTheme = () => {
   ) 
 
   return (
-    <button onClick={handleToggle} className="flex items-center gap-1 opacity-70 hover:opacity-100 transition-opacity">
+    <button onClick={handleToggle} className="flex items-center gap-1 opacity-70 hover:opacity-100 transition-opacity group">
       {theme === "dark" ? (
         <>
-          Light <MdOutlineLightMode className="text-xl" />
+          Light <MdOutlineLightMode className="text-xl group-hover:rotate-180 transition-transform" />
         </>
       ) : (
         <>

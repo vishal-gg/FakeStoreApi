@@ -1,17 +1,15 @@
 import Sidebar from "./Sidebar";
 import Content from "./Content";
-import PrismLoader from "@/lib/PrismLoader";
 
 const page = () => {
   return (
-    <div className="flex gap-5 pt-16">
-      <aside className="sticky top-16 z-50 h-[calc(100vh-5rem)] pl-10 w-64 max-md:hidden">
+    <div className="flex w-[min(1500px,100%)] mx-auto gap-10 pt-16">
+      <aside className="sticky top-16 z-50 h-[calc(100vh-5rem)] pl-16 w-80 max-lg:hidden">
         <Sidebar />
       </aside>
       <main className="flex-1 overflow-hidden">
         <Content />
       </main>
-      <PrismLoader />
     </div>
   )
 }

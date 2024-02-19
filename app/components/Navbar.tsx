@@ -31,9 +31,9 @@ const Navbar = () => {
             )}>
               <Link href="/docs">Docs</Link>
             </li>
-            <li className="opacity-60 hover:opacity-100 transition-opacity">
+            <li className="opacity-60 hover:opacity-100 transition-opacity group">
               <Link href="https://github.com/vishal-gg/fakeStoreApi" target="_blank" className="flex items-center">
-                GitHub <FiArrowUpRight className="text-xl" />
+                GitHub <FiArrowUpRight className="text-xl group-hover:-translate-y-[2px] group-hover:translate-x-[2px] transition-transform" />
               </Link>
             </li>
           </ul>
