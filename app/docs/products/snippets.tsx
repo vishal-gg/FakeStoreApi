@@ -19,7 +19,6 @@ export const AllProductsSnip = () => {
       </pre>
   )
 }
-
 export const AllProductsOutputSnip = () => {
   
   return (
@@ -32,6 +31,10 @@ export const AllProductsOutputSnip = () => {
       <pre>
         <code className="hljs rounded-md outline outline-1 outline-white/10">
       {`
+  {
+  "status": "SUCCESS",
+  "message": "Here you go! You've received...",
+  "products": [
   {
     id: 1,
     title: "Sony WH-1000XM3...",
@@ -71,20 +74,21 @@ export const AllProductsOutputSnip = () => {
     onSale: true,
     discount: 23
   }
+  ]
+  }
       `}
         </code>
       </pre>
     </div>
   )
 }
-
 export const SingleProductSnip = () => {
   const {snipRef, handleCopy, isCopied} = useCopySnippet()
 
   return (
     <pre className="relative">
         <code ref={snipRef} className="hljs rounded-md outline outline-1 outline-white/10">
-{`fetch("api/products/2")
+ {`fetch("api/products/2") 
 .then(res => res.json())
 .then(res => console.log(res))
 `}          
@@ -93,117 +97,449 @@ export const SingleProductSnip = () => {
       </pre>
   )
 }
-
-
-export const LimitedProductsSnip = () => {
+export const SingleProductOutputSnip = () => {
+  
+  return (
+    <div className="relative overflow-hidden rounded-md mt-10">
+      <motion.span
+      initial={{backdropFilter: 'blur(10px)', backgroundColor: '#0d1117'}}
+      animate={{backdropFilter: 'blur(0px)', backgroundColor: '#0d111700'}}
+      transition={{duration: .3}}
+      className="absolute inset-0 pointer-events-none"></motion.span>
+      <pre>
+        <code className="hljs rounded-md outline outline-1 outline-white/10">
+      {`
+ {
+  "status": "SUCCESS",
+  "message": "Here you've a single product requested for id 2",
+  "product": {
+    "id": 2,
+    "title": "Microsoft Xbox X/S Wireless...",
+    "image": "https://storage...",
+    "price": 57,
+    "description": "Experience the modernized design...",
+    "brand": "microsoft",
+    "model": "Xbox X/S",
+    "color": "white",
+    "category": "gaming",
+    "popular": true,
+    "discount": 4
+  }
+}
+      `}
+        </code>
+      </pre>
+    </div>
+  )
+}
+export const LimitedProductSnip = () => {
   const {snipRef, handleCopy, isCopied} = useCopySnippet()
+
   return (
     <pre className="relative">
-    <code ref={snipRef} className="hljs rounded-md outline outline-1 outline-white/10">
-{`fetch("api/products")
+        <code ref={snipRef} className="hljs rounded-md outline outline-1 outline-white/10">
+ {`fetch("api/products?limit=2") 
 .then(res => res.json())
 .then(res => console.log(res))
 `}          
-    </code>
-    <CopyButton handleCopy={handleCopy} isCopied={isCopied} />
-  </pre>
+        </code>
+        <CopyButton handleCopy={handleCopy} isCopied={isCopied} />
+      </pre>
   )
 }
-export const PaginatedProductsSnip = () => {
+export const LimitedProductOutputSnip = () => {
+  
   return (
-    <div className="overflow-x-auto">
-      <pre className="language-js rounded-lg">
-         <code>fetch("api/products?page=2")</code><br />
-         <code>.then(res =&gt; res.json)</code><br />
-         <code>.then(res =&gt; console.log(res));</code>
+    <div className="relative overflow-hidden rounded-md mt-10">
+      <motion.span
+      initial={{backdropFilter: 'blur(10px)', backgroundColor: '#0d1117'}}
+      animate={{backdropFilter: 'blur(0px)', backgroundColor: '#0d111700'}}
+      transition={{duration: .3}}
+      className="absolute inset-0 pointer-events-none"></motion.span>
+      <pre>
+        <code className="hljs rounded-md outline outline-1 outline-white/10">
+      {`
+   {
+    "status": "SUCCESS",
+    "message": "Here you go! You've received 2...",
+    "products": [
+      {
+        "id": 1,
+        "title": "Sony WH-1000XM3 Bluetooth...",
+        "image": "https://storage...",
+        "price": 773,
+        "description": "Digital noise cancelling...",
+        "brand": "sony",
+        "model": "WH-1000XM3",
+        "color": "silver",
+        "category": "audio",
+        "discount": 11
+      },
+      {
+        "id": 2,
+        "title": "Microsoft Xbox X/S Wireless...",
+        "image": "https://storage...",
+        "price": 57,
+        "description": "Experience the modernized...",
+        "brand": "microsoft",
+        "model": "Xbox X/S",
+        "color": "white",
+        "category": "gaming",
+        "popular": true,
+        "discount": 4
+      }
+    ]
+  }
+      `}
+        </code>
       </pre>
-   </div>
+    </div>
+  )
+}
+export const PaginationSnip = () => {
+  const {snipRef, handleCopy, isCopied} = useCopySnippet()
+
+  return (
+  <>  <pre className="relative">
+        <code ref={snipRef} className="hljs rounded-md outline outline-1 outline-white/10">
+ {`fetch("api/products?page=2")
+.then(res => res.json())
+.then(res => console.log(res))
+`}          
+        </code>
+        <CopyButton handleCopy={handleCopy} isCopied={isCopied} />
+      </pre>
+      <div>
+         <p>
+            ⚡ By default, we send 50 products. use{" "}
+            <span className="px-2 pt-[2px] pb-1 rounded-md dark:text-[#b8bb26] bg-zinc-200 dark:bg-[#1d2021] whitespace-nowrap">
+              /products?page=2&limit=20
+            </span>{" "}
+            to limit products per page.
+          </p>
+          <p className="py-2">
+            {/* 💁‍♂️ You don't need to pass{" "} */}
+            <span className="px-2 pt-[2px] pb-1 rounded-md dark:text-[#b8bb26] bg-zinc-200 dark:bg-[#1d2021] whitespace-nowrap">
+              ?skip=20
+            </span>{" "}
+            query, we took care of that.
+          </p>
+         </div>
+      </>
+  )
+}
+export const PaginationOutputSnip = () => {
+  
+  return (
+    <div className="relative overflow-hidden rounded-md mt-10">
+      <motion.span
+      initial={{backdropFilter: 'blur(10px)', backgroundColor: '#0d1117'}}
+      animate={{backdropFilter: 'blur(0px)', backgroundColor: '#0d111700'}}
+      transition={{duration: .3}}
+      className="absolute inset-0 pointer-events-none"></motion.span>
+      <pre>
+        <code className="hljs rounded-md outline outline-1 outline-white/10">
+      {`
+  {
+    "status": "SUCCESS",
+    "message": "Here you go! You've received 50...",
+    "products": [    
+  {
+    "id": 51,
+    "title": " Samsung  4K Ultra ...",
+    "image": "https://storage...",
+    "price": 2016,
+    "description": "Resolution: 4K Ultra HD (3840x2160)...",
+    "brand": "samsung",
+    "model": "QA55Q80RAKXXL",
+    "color": "black",
+    "category": "tv",
+    "onSale": true,
+    "discount": 19
+  }, 
+  // {...},   
+  {
+    "id": 100,
+    "title": "Logitech G PRO X Gaming...",
+    "image": "https://storage...",
+    "price": 336,
+    "description": "Blue VO!CE microphone technology*...",
+    "brand": "Logitech G",
+    "model": "G PRO X",
+    "color": "black",
+    "category": "gaming",
+    "discount": 9
+  }
+ ]
+}
+      `}
+        </code>
+      </pre>
+    </div>
   )
 }
 export const ProductsCategorySnip = () => {
+  const {snipRef, handleCopy, isCopied} = useCopySnippet()
+
   return (
-    <div className="overflow-x-auto">
-      <pre className="language-js rounded-lg">
-         <code>fetch("api/products/category")</code><br />
-         <code>.then(res =&gt; res.json)</code><br />
-         <code>.then(res =&gt; console.log(res));</code>
+    <pre className="relative">
+        <code ref={snipRef} className="hljs rounded-md outline outline-1 outline-white/10">
+ {`fetch("api/products/category")
+.then(res => res.json())
+.then(res => console.log(res))
+`}          
+        </code>
+        <CopyButton handleCopy={handleCopy} isCopied={isCopied} />
       </pre>
-   </div>
   )
 }
-
-export const ProductsofCategorySnip = () => {
-  return (
-    <div className="overflow-x-auto">
-      <pre className="language-js rounded-lg">
-         <code>fetch("api/products/category?type=mobile")</code><br />
-         <code>.then(res =&gt; res.json)</code><br />
-         <code>.then(res =&gt; console.log(res));</code>
-      </pre>
-   </div>
-  )
-}
-
-export const AddProductSnip = () => {
-  return (
-  <div className="overflow-x-auto">
-      <pre className="language-js rounded-lg">
-        <code>fetch("api/products", &#123;</code><br />
-        <code>  method: 'POST',</code><br />
-        <code>  headers: &#123; 'Content-Type': 'application/json' &#125;,</code><br />
-        <code>  body: JSON.stringify(&#123;</code><br />
-        <code>    title: 'product title',</code><br />
-        <code>    brand: "abc brand",</code><br />
-        <code>    model: "xyz model",</code><br />
-        <code>    color: "silver",</code><br />
-        <code>    category: "appliances",</code><br />
-        <code>    discount: 50</code><br />
+export const ProductsCategoryOutputSnip = () => {
   
-        <code>  &#125;)</code><br />
-        <code>&#125;)</code><br />
-      </pre>
-  </div>
-  ) 
-}
-
-export const UpdateProductSnip = () => {
   return (
-    <div className="overflow-x-auto">
-        <pre className="language-js rounded-lg">
-          <code>fetch("api/products/2", &#123;</code><br />
-          <code>  method: 'PUT',</code><br />
-          <code>  headers: &#123; 'Content-Type': 'application/json' &#125;,</code><br />
-          <code>  body: JSON.stringify(&#123;</code><br />
-          <code>    title: 'product title',</code><br />
-          <code>    brand: "abc brand",</code><br />
-          <code>    model: "xyz model",</code><br />
-          <code>    color: "silver",</code><br />
-          <code>    category: "appliances",</code><br />
-          <code>    discount: 50</code><br />
-          <code>  &#125;)</code><br />
-          <code>&#125;)</code><br />
-        </pre>
+    <div className="relative overflow-hidden rounded-md mt-10">
+      <motion.span
+      initial={{backdropFilter: 'blur(10px)', backgroundColor: '#0d1117'}}
+      animate={{backdropFilter: 'blur(0px)', backgroundColor: '#0d111700'}}
+      transition={{duration: .3}}
+      className="absolute inset-0 pointer-events-none"></motion.span>
+      <pre>
+        <code className="hljs rounded-md outline outline-1 outline-white/10">
+      {`
+ {
+  "status": "SUCCESS",
+  "message": "We have 6 categories to choose from.",
+  "categories": [
+    "tv",
+    "audio",
+    "laptop",
+    "mobile",
+    "gaming",
+    "appliances"
+  ]
+}
+      `}
+        </code>
+      </pre>
     </div>
-  ) 
+  )
+}
+export const ProductsofCategorySnip = () => {
+  const {snipRef, handleCopy, isCopied} = useCopySnippet()
+
+  return (
+    <pre className="relative">
+        <code ref={snipRef} className="hljs rounded-md outline outline-1 outline-white/10">
+ {`fetch("api/products/category?type=mobile")
+.then(res => res.json())
+.then(res => console.log(res))
+`}          
+        </code>
+        <CopyButton handleCopy={handleCopy} isCopied={isCopied} />
+      </pre>
+  )
+}
+export const ProductsofCategoryOutputSnip = () => {
+  
+  return (
+    <div className="relative overflow-hidden rounded-md mt-10">
+      <motion.span
+      initial={{backdropFilter: 'blur(10px)', backgroundColor: '#0d1117'}}
+      animate={{backdropFilter: 'blur(0px)', backgroundColor: '#0d111700'}}
+      transition={{duration: .3}}
+      className="absolute inset-0 pointer-events-none"></motion.span>
+      <pre>
+        <code className="hljs rounded-md outline outline-1 outline-white/10">
+      {`
+ {
+  "status": "SUCCESS",
+  "message": "You've received products from the mobile category only.",
+  "products": [
+    {
+      "id": 8,
+      "title": "Samsung Galaxy S21 FE 5G...",
+      "image": "https://storage...",
+      "price": 434,
+      "description": "Pro-grade Camera with AI Single Take...",
+      "brand": "samsung",
+      "model": "Samsung Galaxy S21 FE 5G ...",
+      "color": "Lavender",
+      "category": "mobile",
+      "discount": 9,
+      "onSale": true
+    },
+    {
+      "id": 10,
+      "title": "Samsung Galaxy S22 5G...",
+      "image": "https://storage...",
+      "price": 760,
+      "description": "Pro-grade Camera that lets...",
+      "brand": "samsung",
+      "model": "Samsung Galaxy S22 5G",
+      "color": "White",
+      "category": "mobile",
+      "discount": 29
+    },
+  ]
+}
+      `}
+        </code>
+      </pre>
+    </div>
+  )
+}
+export const AddProductSnip = () => {
+  const {snipRef, handleCopy, isCopied} = useCopySnippet()
+
+  return (
+    <pre className="relative">
+        <code ref={snipRef} className="hljs rounded-md outline outline-1 outline-white/10">
+ {`fetch("api/products", {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    title: 'product title',
+    brand: "abc brand",
+    model: "xyz model",
+    color: "silver",
+    category: "appliances",
+    discount: 50
+  })
+})
+`}          
+        </code>
+        <CopyButton handleCopy={handleCopy} isCopied={isCopied} />
+      </pre>
+  )
+}
+export const AddProductOutputSnip = () => {
+  
+  return (
+    <div className="relative overflow-hidden rounded-md mt-10">
+      <motion.span
+      initial={{backdropFilter: 'blur(10px)', backgroundColor: '#0d1117'}}
+      animate={{backdropFilter: 'blur(0px)', backgroundColor: '#0d111700'}}
+      transition={{duration: .3}}
+      className="absolute inset-0 pointer-events-none"></motion.span>
+      <pre>
+        <code className="hljs rounded-md outline outline-1 outline-white/10">
+      {`
+ {
+  "status": "SUCCESS",
+  "message": "Here is the product you sent, which we have just returned you back. We do not save it in our Database",
+  "product": {
+    "id": 150,
+    "title": "Apple Vision Pro",
+    "brand": "Apple",
+    "model": "Apple vision pro First Gen",
+    "color": "Black",
+    "category": "appliances",
+    "discount": 1
+  }
+}
+      `}
+        </code>
+      </pre>
+    </div>
+  )
+}
+export const UpdateProductSnip = () => {
+  const {snipRef, handleCopy, isCopied} = useCopySnippet()
+
+  return (
+    <pre className="relative">
+        <code ref={snipRef} className="hljs rounded-md outline outline-1 outline-white/10">
+ {`fetch("api/products/2", {
+  method: 'PUT',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    title: 'product title',
+    brand: "abc brand",
+    model: "xyz model",
+    color: "silver",
+    category: "appliances",
+    discount: 50
+  })
+})
+`}          
+        </code>
+        <CopyButton handleCopy={handleCopy} isCopied={isCopied} />
+      </pre>
+  )
+}
+export const UpdateProductOutputSnip = () => {
+  
+  return (
+    <div className="relative overflow-hidden rounded-md mt-10">
+      <motion.span
+      initial={{backdropFilter: 'blur(10px)', backgroundColor: '#0d1117'}}
+      animate={{backdropFilter: 'blur(0px)', backgroundColor: '#0d111700'}}
+      transition={{duration: .3}}
+      className="absolute inset-0 pointer-events-none"></motion.span>
+      <pre>
+        <code className="hljs rounded-md outline outline-1 outline-white/10">
+      {`
+ {
+  "status": "SUCCESS",
+  "message": "The product with id 2 has been replaced with your provided data",
+  "product": {
+    "id": "2",
+    "title": "Apple Vision Pro",
+    "brand": "Apple",
+    "model": "Apple vision pro First Gen",
+    "color": "Black",
+    "category": "appliances",
+    "discount": "1"
+  }
+}
+      `}
+        </code>
+      </pre>
+    </div>
+  )
 }
 export const DeleteProductSnip = () => {
-  return (
-    <div className="overflow-x-auto">
-        <pre className="language-js rounded-lg">
-          <code>fetch("api/products/2", &#123;</code><br />
-          <code>  method: 'DELETE',</code><br />
-          <code>  headers: &#123; 'Content-Type': 'application/json' &#125;,</code><br />
-          <code>  body: JSON.stringify(&#123;</code><br />
-          <code>    title: 'product title',</code><br />
-          <code>    brand: "abc brand",</code><br />
-          <code>    model: "xyz model",</code><br />
-          <code>    color: "silver",</code><br />
-          <code>    category: "appliances",</code><br />
-          <code>    discount: 50</code><br />
-          <code>  &#125;)</code><br />
-          <code>&#125;)</code><br />
-        </pre>
-    </div>
-  ) 
-}
+  const {snipRef, handleCopy, isCopied} = useCopySnippet()
 
+  return (
+    <pre className="relative">
+        <code ref={snipRef} className="hljs rounded-md outline outline-1 outline-white/10">
+ {`fetch("api/products/2", {
+  method: 'DELETE',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    title: 'product title',
+    brand: "abc brand",
+    model: "xyz model",
+    color: "silver",
+    category: "appliances",
+    discount: 50
+  })
+})
+`}          
+        </code>
+        <CopyButton handleCopy={handleCopy} isCopied={isCopied} />
+      </pre>
+  )
+}
+export const DeleteProductOutputSnip = () => {
+  
+  return (
+    <div className="relative overflow-hidden rounded-md mt-10">
+      <motion.span
+      initial={{backdropFilter: 'blur(10px)', backgroundColor: '#0d1117'}}
+      animate={{backdropFilter: 'blur(0px)', backgroundColor: '#0d111700'}}
+      transition={{duration: .3}}
+      className="absolute inset-0 pointer-events-none"></motion.span>
+      <pre>
+        <code className="hljs rounded-md outline outline-1 outline-white/10">
+      {`
+ {
+  "status": "SUCCESS",
+  "message": "Product with id 2 has been deleted"
+}
+      `}
+        </code>
+      </pre>
+    </div>
+  )
+}

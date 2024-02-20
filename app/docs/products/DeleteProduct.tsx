@@ -1,18 +1,18 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { SingleProductOutputSnip, SingleProductSnip } from "./snippets";
+import {DeleteProductOutputSnip, DeleteProductSnip} from "./snippets";
 import { useState } from "react";
 import { useTiggerHightlight } from "@/context/HighlightContext";
 
-const SingleProduct = () => {
+const DeleteProduct = () => {
   const [showOutput, setShowOutput] = useState(false);
   const {setTriggerHighlight} = useTiggerHightlight()
   return (
     <div>
       <div id="all_products" className="space-y-4">
-        <h3 className="text-xl font-medium">Get single product</h3>
-        <SingleProductSnip />
+        <h3 className="text-xl font-medium">Delete a product</h3>
+        <DeleteProductSnip />
       </div>
       <Button
         onClick={() => {
@@ -24,9 +24,9 @@ const SingleProduct = () => {
       >
         {showOutput ? "Collapse" : "Show Result"}
       </Button>
-      {showOutput && <SingleProductOutputSnip />}
+      {showOutput && <DeleteProductOutputSnip/>}
     </div>
   )
 }
 
-export default SingleProduct;
+export default DeleteProduct;
