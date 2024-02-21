@@ -1,10 +1,4 @@
 import { GoPackage } from "react-icons/go";
-import {
-  AddProductSnip,
-  DeleteProductSnip,
-  ProductsofCategorySnip,
-  UpdateProductSnip,
-} from "./snippets";
 import AllProducts from "./AllProducts";
 import SingleProduct from "./SingleProduct";
 import LimitedProduct from "./LimitedProduct";
