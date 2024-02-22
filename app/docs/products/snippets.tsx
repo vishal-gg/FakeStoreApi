@@ -73,8 +73,8 @@ export const AllProductsOutputSnip = () => {
     category: "appliances",
     onSale: true,
     discount: 23
-  }
-  ]
+    }
+   ]
   }
       `}
         </code>
@@ -397,12 +397,12 @@ export const AddProductSnip = () => {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({
-    title: 'product title',
-    brand: "abc brand",
-    model: "xyz model",
-    color: "silver",
+    title: "Apple Vision Pro",
+    brand: "Apple",
+    model: "Apple vision pro First Gen",
+     color: "Black",
     category: "appliances",
-    discount: 50
+    discount: 1
   })
 })
 `}          
@@ -425,7 +425,7 @@ export const AddProductOutputSnip = () => {
       {`
  {
   "status": "SUCCESS",
-  "message": "Here is the product you sent, which we have just returned you back. We do not save it in our Database",
+  "message": "Here is the product you sent,...",
   "product": {
     "id": 150,
     "title": "Apple Vision Pro",
@@ -452,12 +452,9 @@ export const UpdateProductSnip = () => {
   method: 'PUT',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({
-    title: 'product title',
-    brand: "abc brand",
-    model: "xyz model",
-    color: "silver",
-    category: "appliances",
-    discount: 50
+    model: "Apple vision pro Second Gen",
+    color: "Blue",
+    discount: 47
   })
 })
 `}          
@@ -485,10 +482,10 @@ export const UpdateProductOutputSnip = () => {
     "id": "2",
     "title": "Apple Vision Pro",
     "brand": "Apple",
-    "model": "Apple vision pro First Gen",
-    "color": "Black",
+    "model": "Apple vision pro Second Gen",
+    "color": "Blue",
     "category": "appliances",
-    "discount": "1"
+    "discount": "47"
   }
 }
       `}
@@ -505,16 +502,8 @@ export const DeleteProductSnip = () => {
         <code ref={snipRef} className="hljs rounded-md outline outline-1 outline-white/10">
  {`fetch("api/products/2", {
   method: 'DELETE',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    title: 'product title',
-    brand: "abc brand",
-    model: "xyz model",
-    color: "silver",
-    category: "appliances",
-    discount: 50
-  })
-})
+}).then(res => res.json())
+.then(res => console.log(res))
 `}          
         </code>
         <CopyButton handleCopy={handleCopy} isCopied={isCopied} />

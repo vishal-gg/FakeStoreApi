@@ -435,9 +435,8 @@ export const UpdateUserSnip = () => {
           <code ref={snipRef} className="hljs rounded-md outline outline-1 outline-white/10">
 {`fetch("api/users/11", {
 method: 'DELETE',
-.then(res => res.json())
+}).then(res => res.json())
 .then(res => console.log(res))
-})
 `}          
           </code>
           <CopyButton handleCopy={handleCopy} isCopied={isCopied} />
