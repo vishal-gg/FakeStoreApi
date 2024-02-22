@@ -16,7 +16,7 @@ export const useCopySnippet = () => {
       try {
         await navigator.clipboard.writeText(snippet)
         setIsCopied(true);
-        setTimeout(() => setIsCopied(false), 1000);
+        setTimeout(() => setIsCopied(false), 2000);
       } catch (err) {
         console.warn('Copy failed', err)
       }

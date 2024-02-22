@@ -15,7 +15,7 @@ const CopyButton = ({handleCopy, isCopied} : propsType) => {
       {!isCopied ? (
         <motion.span
           animate={{scale: [0,1]}}
-          key={`${isCopied}`}
+          key="copy"
           exit={{scale: 0}}
           transition={{type: 'tween', duration: .2}}
           >
@@ -24,11 +24,11 @@ const CopyButton = ({handleCopy, isCopied} : propsType) => {
       ) : (
         <motion.span
           animate={{scale: [0,1]}}
-          key={`${isCopied}`}
+          key="checked"
           exit={{scale: 0}}
           transition={{type: 'tween', duration: .2}}
         >
-          <FaCheck />
+          <FaCheck className="text-green-400" />
         </motion.span>
       )}
     </AnimatePresence>

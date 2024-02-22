@@ -1,10 +1,11 @@
-import Navbar from "./components/Navbar"
-import ToggleTheme from "./components/ToggleTheme"
+import About from "./components/About"
+import Hero from "./components/Hero"
 
 const page = () => {
   return (
-    <div className="pt-20">
-
+    <div className="">
+      <Hero />
+      <About />
     </div>
   )
 }
