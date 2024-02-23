@@ -218,7 +218,7 @@ export const PaginationSnip = () => {
             to limit products per page.
           </p>
           <p className="py-2">
-            {/* 💁‍♂️ You don't need to pass{" "} */}
+            💁‍♂️ You don't need to pass{" "}
             <span className="px-2 pt-[2px] pb-1 rounded-md dark:text-[#b8bb26] bg-zinc-200 dark:bg-[#1d2021] whitespace-nowrap">
               ?skip=20
             </span>{" "}

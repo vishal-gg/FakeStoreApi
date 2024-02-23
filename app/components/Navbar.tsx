@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <div>
       <div
-        className="flex justify-between items-center p-5 px-8 font-semibold bg-white/70 dark:bg-[#020817d0] border-b border-gray-100 dark:border-white/5 backdrop-blur-sm fixed z-50 top-0 left-0 w-full"
+        className="flex justify-between max-sm:flex-col gap-4 items-center p-5 px-8 font-semibold bg-white/70 dark:bg-[#020817d0] border-b border-gray-100 dark:border-white/5 backdrop-blur-sm fixed z-50 top-0 left-0 w-full"
       >
         <div>
           <Link href="/">
