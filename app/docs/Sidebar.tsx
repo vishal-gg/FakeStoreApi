@@ -16,16 +16,15 @@ const Sidebar = () => {
     { section: "Add a product", link: "add_product" },
     { section: "Update a product", link: "update_product" },
     { section: "Delete a product", link: "delete_product" },
-    { section: "Preview products", link: "preview_product" }
   ];
   const usersTabs = [
-    "Get all users",
-    "Get a single user",
-    "Limit users",
-    "Pagination",
-    "Add a user",
-    "Update a user",
-    "Delete a user",
+    { section: "Get all users", link: "all_users" },
+    { section: "Get a single user", link: "single_users" },
+    { section: "Limit users", link: "limit_users" },
+    { section: "Pagination", link: "users_pagination" },
+    { section: "Add a user", link: "add_users" },
+    { section: "Update a user", link: "update_users" },
+    { section: "Delete a user", link: "delete_users" },
   ];
 
   return (
@@ -51,13 +50,23 @@ const Sidebar = () => {
       <h2 className="font-semibold my-5">
         <TbUsers className="inline mr-[2px] -translate-y-[1px]" /> Users
       </h2>
-      <ul className="text-sm space-y-[10px] opacity-60">
+      <ul className="text-sm space-y-[10px] ">
         {usersTabs.map((tab) => (
-          <li key={tab}>{tab}</li>
+          <li key={tab.section}>
+            <Link
+              to={tab.link}
+              spy={true}
+              offset={-85}
+              activeStyle={{ opacity: 1, fontWeight: 500 }}
+              className="cursor-pointer opacity-60 hover:opacity-100 hover:font-medium inline-block transition"
+            >
+              {tab.section}
+            </Link>
+          </li>
         ))}
       </ul>
     </ScrollArea>
-  )
-}
+  );
+};
 
 export default Sidebar;

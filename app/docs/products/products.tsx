@@ -22,10 +22,9 @@ export const Products = () => {
         <PaginationProduct />
         <ProductCategory />
         <ProductofCategory />
-        <AddProduct/>
-        <UpdateProduct/>
+        <AddProduct />
+        <UpdateProduct />
         <DeleteProduct />
-        
       </div>
     </div>
   );

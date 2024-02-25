@@ -10,7 +10,7 @@ export const AllProductsSnip = () => {
   return (
       <pre className="relative">
         <code ref={snipRef} className="hljs rounded-md outline outline-1 outline-white/10">
-{`fetch("api/products")
+{`fetch("https://fakestoreapi.in/api/products")
 .then(res => res.json())
 .then(res => console.log(res))
 `}          
@@ -88,7 +88,7 @@ export const SingleProductSnip = () => {
   return (
     <pre className="relative">
         <code ref={snipRef} className="hljs rounded-md outline outline-1 outline-white/10">
- {`fetch("api/products/2") 
+ {`fetch("https://fakestoreapi.in/api/products/2") 
 .then(res => res.json())
 .then(res => console.log(res))
 `}          
@@ -138,7 +138,7 @@ export const LimitedProductSnip = () => {
   return (
     <pre className="relative">
         <code ref={snipRef} className="hljs rounded-md outline outline-1 outline-white/10">
- {`fetch("api/products?limit=2") 
+ {`fetch("https://fakestoreapi.in/api/products?limit=2") 
 .then(res => res.json())
 .then(res => console.log(res))
 `}          
@@ -202,7 +202,7 @@ export const PaginationSnip = () => {
   return (
   <>  <pre className="relative">
         <code ref={snipRef} className="hljs rounded-md outline outline-1 outline-white/10">
- {`fetch("api/products?page=2")
+ {`fetch("https://fakestoreapi.in/api/products?page=2")
 .then(res => res.json())
 .then(res => console.log(res))
 `}          
@@ -284,7 +284,7 @@ export const ProductsCategorySnip = () => {
   return (
     <pre className="relative">
         <code ref={snipRef} className="hljs rounded-md outline outline-1 outline-white/10">
- {`fetch("api/products/category")
+ {`fetch("https://fakestoreapi.in/api/products/category")
 .then(res => res.json())
 .then(res => console.log(res))
 `}          
@@ -329,7 +329,7 @@ export const ProductsofCategorySnip = () => {
   return (
     <pre className="relative">
         <code ref={snipRef} className="hljs rounded-md outline outline-1 outline-white/10">
- {`fetch("api/products/category?type=mobile")
+ {`fetch("https://fakestoreapi.in/api/products/category?type=mobile")
 .then(res => res.json())
 .then(res => console.log(res))
 `}          
@@ -393,7 +393,7 @@ export const AddProductSnip = () => {
   return (
     <pre className="relative">
         <code ref={snipRef} className="hljs rounded-md outline outline-1 outline-white/10">
- {`fetch("api/products", {
+ {`fetch("https://fakestoreapi.in/api/products", {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({
@@ -448,7 +448,7 @@ export const UpdateProductSnip = () => {
   return (
     <pre className="relative">
         <code ref={snipRef} className="hljs rounded-md outline outline-1 outline-white/10">
- {`fetch("api/products/2", {
+ {`fetch("https://fakestoreapi.in/api/products/2", {
   method: 'PUT',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({
@@ -500,7 +500,7 @@ export const DeleteProductSnip = () => {
   return (
     <pre className="relative">
         <code ref={snipRef} className="hljs rounded-md outline outline-1 outline-white/10">
- {`fetch("api/products/2", {
+ {`fetch("https://fakestoreapi.in/api/products/2", {
   method: 'DELETE',
 }).then(res => res.json())
 .then(res => console.log(res))

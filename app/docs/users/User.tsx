@@ -15,15 +15,14 @@ const User = () => {
         <h2 className="text-3xl font-semibold my-24 text-pink-500">
           <TbUsers className="inline mr-[2px] -translate-y-[2px]" /> Users
         </h2>
-        <div className="space-y-16 pb-4">
-          <AllUser/>
-          <SingleUser/>
-          <LimitedUser/>
-          <PaginationUser/>
-          <AddUser/>
-          <UpdateUser/>
-          <DeleteUser/>
-
+        <div className="space-y-16 pb-[22rem] max-lg:pb-6 ">
+          <AllUser />
+          <SingleUser />
+          <LimitedUser />
+          <PaginationUser />
+          <AddUser />
+          <UpdateUser />
+          <DeleteUser />
         </div>
       </div>
     </>

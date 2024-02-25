@@ -10,7 +10,7 @@ export const AllUsersSnip = () => {
     return (
         <pre className="relative">
           <code ref={snipRef} className="hljs rounded-md outline outline-1 outline-white/10">
-{`fetch("api/users")
+{`fetch("https://fakestoreapi.in/api/users")
 .then(res => res.json())
 .then(res => console.log(res))
 `}          
@@ -85,7 +85,7 @@ export const SingleUserSnip = () => {
     return (
       <pre className="relative">
           <code ref={snipRef} className="hljs rounded-md outline outline-1 outline-white/10">
-{`fetch("api/users/7") 
+{`fetch("https://fakestoreapi.in/api/users/7") 
 .then(res => res.json())
 .then(res => console.log(res))
 `}          
@@ -143,7 +143,7 @@ export const LimitedUserSnip = () => {
     return (
       <pre className="relative">
           <code ref={snipRef} className="hljs rounded-md outline outline-1 outline-white/10">
-{`fetch("api/users?limit=2") 
+{`fetch("https://fakestoreapi.in/api/users?limit=2") 
 .then(res => res.json())
 .then(res => console.log(res))
 `}          
@@ -200,7 +200,7 @@ export const PaginationSnip = () => {
     return (
     <>  <pre className="relative">
           <code ref={snipRef} className="hljs rounded-md outline outline-1 outline-white/10">
-{`fetch("api/users?page=2")
+{`fetch("https://fakestoreapi.in/api/users?page=2")
 .then(res => res.json())
 .then(res => console.log(res))
 `}          
@@ -275,7 +275,7 @@ export const AddUserSnip = () => {
     return (
       <pre className="relative">
           <code ref={snipRef} className="hljs rounded-md outline outline-1 outline-white/10">
-   {`fetch("api/users", {
+   {`fetch("https://fakestoreapi.in/api/users", {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -354,7 +354,7 @@ export const UpdateUserSnip = () => {
     return (
       <pre className="relative">
           <code ref={snipRef} className="hljs rounded-md outline outline-1 outline-white/10">
-   {`fetch("api/users/18", {
+   {`fetch("https://fakestoreapi.in/api/users/18", {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -433,7 +433,7 @@ export const UpdateUserSnip = () => {
     return (
       <pre className="relative">
           <code ref={snipRef} className="hljs rounded-md outline outline-1 outline-white/10">
-{`fetch("api/users/11", {
+{`fetch("https://fakestoreapi.in/api/users/11", {
 method: 'DELETE',
 }).then(res => res.json())
 .then(res => console.log(res))

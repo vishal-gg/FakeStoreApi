@@ -3,23 +3,85 @@ import Link from "next/link";
 
 const Route = () => {
   const routes = [
-    { method: "GET", link: { href: "#", label: "/api/products" } },
-    { method: "GET", link: { href: "#", label: "/api/products/1" } },
-    { method: "GET", link: { href: "#", label: "/api/products?page=2" } },
-    { method: "GET", link: { href: "#", label: "/api/products?limit=20" } },
-    { method: "GET", link: { href: "#", label: "/api/products/category" } },
     {
       method: "GET",
-      link: { href: "#", label: "/api/products/category?type=mobile" },
+      link: {
+        href: "https://fakestoreapi.in/api/products"
+        ,
+        label: "https://fakestoreapi.in/api/products",
+      },
     },
     {
       method: "GET",
-      link: { href: "#", label: "/api/products/category?type=tv&sort=desc" },
+      link: {
+        href: "https://fakestoreapi.in/api/products/1",
+        label: "https://fakestoreapi.in/api/products/1",
+      },
     },
-    { method: "POST", link: { href: "#", label: "/api/products" } },
-    { method: "PUT", link: { href: "#", label: "/api/products/5" } },
-    { method: "PATCH", link: { href: "#", label: "/api/products/7" } },
-    { method: "DELETE", link: { href: "#", label: "/api/products/3" } },
+    {
+      method: "GET",
+      link: {
+        href: "https://fakestoreapi.in/api/products?page=2",
+        label: "https://fakestoreapi.in/api/products?page=2",
+      },
+    },
+    {
+      method: "GET",
+      link: {
+        href: "https://fakestoreapi.in/api/products?limit=20",
+        label: "https://fakestoreapi.in/api/products?limit=20",
+      },
+    },
+    {
+      method: "GET",
+      link: {
+        href: "https://fakestoreapi.in/api/products/category",
+        label: "https://fakestoreapi.in/api/products/category",
+      },
+    },
+    {
+      method: "GET",
+      link: {
+        href: "https://fakestoreapi.in/api/products/category?type=mobile",
+        label: "https://fakestoreapi.in/api/products/category?type=mobile",
+      },
+    },
+    {
+      method: "GET",
+      link: {
+        href: "https://fakestoreapi.in/api/products/category?type=tv&sort=desc",
+        label:
+          "https://fakestoreapi.in/api/products/category?type=tv&sort=desc",
+      },
+    },
+    {
+      method: "POST",
+      link: {
+        href: "https://fakestoreapi.in/api/products",
+        label: "https://fakestoreapi.in/api/products",
+      },
+    },
+    {
+      method: "PUT",
+      link: {
+        href: "https://fakestoreapi.in/api/products/5",
+        label: "https://fakestoreapi.in/api/products/5",
+      },
+    },
+    {
+      method: "PATCH",
+      link: {
+        href: "https://fakestoreapi.in/api/products/7",
+        label: "https://fakestoreapi.in/api/products/7",
+      },
+    },
+    {
+      method: "DELETE",
+      link: {
+        href: "https://fakestoreapi.in/api/products/3",
+        label: "https://fakestoreapi.in/api/products/3",
+      },
+    },
   ];
 
   return (
@@ -46,6 +108,7 @@ const Route = () => {
             </span>
             <Link
               href={route.link.href}
+              target="_blank"
               className={cn(
                 "whitespace-nowrap w-fit cursor-text",
                 route.method === "GET" &&
@@ -58,7 +121,7 @@ const Route = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Route;

@@ -7,7 +7,7 @@ import { useTiggerHightlight } from "@/context/HighlightContext";
 
 const AllProducts = () => {
   const [showOutput, setShowOutput] = useState(false);
-  const {setTriggerHighlight} = useTiggerHightlight()
+  const { setTriggerHighlight } = useTiggerHightlight();
   return (
     <div>
       <div id="all_products" className="space-y-4">
@@ -23,8 +23,8 @@ const AllProducts = () => {
       </div>
       <Button
         onClick={() => {
-            setShowOutput((prev) => !prev)
-            setTriggerHighlight(prev => !prev)
+          setShowOutput((prev) => !prev);
+          setTriggerHighlight((prev) => !prev);
         }}
         className="mt-10"
         variant={"default"}
@@ -33,7 +33,7 @@ const AllProducts = () => {
       </Button>
       {showOutput && <AllProductsOutputSnip />}
     </div>
-  )
-}
+  );
+};
 
 export default AllProducts;
