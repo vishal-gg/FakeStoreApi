@@ -6,8 +6,6 @@ const corsOptions = {
 }
 
 export function middleware(request: NextRequest) {
-  // Check the origin from the request
-  const origin = request.headers.get('origin') ?? ''
 
   // Handle preflighted requests
   const isPreflight = request.method === 'OPTIONS'
